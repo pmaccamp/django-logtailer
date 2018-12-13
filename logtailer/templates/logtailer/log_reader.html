@@ -3,9 +3,15 @@
 <form id="logfile_form" action="">
 	<div>
 		<div class="submit-row" style="text-align: left;">
-			<input type="button" id="start-button" value="{% trans "start_read" %}"> 
+			<input type="button" id="start-button" value="{% trans "start_read" %}">
 			<input type="button" id="stop-button" style="display: none;" value="{% trans "stop_read" %}">
 			&nbsp;&nbsp;&nbsp;
+			|
+			<input type="button" id="clear-button" value="Clear text"/>
+			|
+			<label>&nbsp;&nbsp;&nbsp;Initial lines:</label>
+
+			<input type="text" id="history-lines" style="border: inherit; background-color: #fff; color: #000; cursor: text; width:60px; height: 15px;" />
 			|
 			&nbsp;&nbsp;&nbsp;
 			{% trans "filters" %}: &nbsp;

@@ -47,7 +47,7 @@ def get_history(f, lines=HISTORY_LINES):
 
 
 @staff_member_required
-def get_log_lines(request, file_id, history=False):
+def get_log_lines(request, file_id, num_lines=HISTORY_LINES, history=False):
     try:
         file_record = LogFile.objects.get(id=file_id)
     except LogFile.DoesNotExist:
@@ -57,7 +57,7 @@ def get_log_lines(request, file_id, history=False):
     file = open(file_record.path, 'r')
 
     if history:
-        content = get_history(file)
+        content = get_history(file, lines=int(num_lines))
         content = [line.replace('\n','<br/>') for line in content]
     else:
         last_position = request.session.get('file_position_%s' % file_id)
@@ -71,6 +71,7 @@ def get_log_lines(request, file_id, history=False):
     request.session['file_position_%s' % file_id] = file.tell()
     file.close()
     return HttpResponse(json.dumps(content), content_type='application/json')
+
 
 
 @staff_member_required

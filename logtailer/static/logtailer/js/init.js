@@ -12,9 +12,15 @@ django.jQuery('#auto-scroll').click(function() {
 
 django.jQuery('#filter-select').change(function() {
 	LogTailer.customFilter();
-});		
+});
+
+django.jQuery('#clear-button').click(function() {
+	LogTailer.clearLog();
+});
 
 django.jQuery('#log-window').html("")
+django.jQuery('#history-lines').val(LogTailer.history_lines)
+
 LogTailer.customFilter();
 
 django.jQuery("#save-logs").colorbox({width:"500px",

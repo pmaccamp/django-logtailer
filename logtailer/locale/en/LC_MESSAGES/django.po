@@ -71,11 +71,11 @@ msgstr "Log lines saved"
 
 #: templates/logtailer/log_reader.html:6
 msgid "start_read"
-msgstr "Start read"
+msgstr "Start tail"
 
 #: templates/logtailer/log_reader.html:7
 msgid "stop_read"
-msgstr "Stop read"
+msgstr "Stop tail"
 
 #: templates/logtailer/log_reader.html:13
 msgid "apply"
